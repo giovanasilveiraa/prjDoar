@@ -22,7 +22,7 @@ try {
         $rs_cpf = mysqli_query($con, $check_cpf);
         $dt_cpf = mysqli_fetch_array($rs_cpf, MYSQLI_NUM);
         if($dt_cpf[0] > 0) {
-            throw new Exception("Esse CPF já está em uso");
+            throw new Exception("Esse RG já está em uso");
         }
 
         $check_rg="SELECT rg FROM usuario WHERE rg = '$_POST[rg]'";
