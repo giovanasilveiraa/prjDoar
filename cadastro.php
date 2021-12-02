@@ -46,7 +46,7 @@
             <div class="row">
             <div class="col">
                 
-                <h1  class="text-secondary fst-italic"><svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 15 16">
+                <h1  class="mt-5 text-danger fst-italic"><svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 15 16">
             <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
             <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z"/>
             </svg>
@@ -55,7 +55,7 @@
             </div>
             </div>
 
-            <p class="texto mt-5"><label for="nome">Nome</label></p>
+            <p class="texto mt-2"><label for="nome">Nome</label></p>
             <input type="text" name="nome" id="nome" placeholder="Nome completo" class="form-control" required="" autofocus="">
 
             <p class="texto mt-3"><label for="email">Email:</label></p>
@@ -70,7 +70,7 @@
             <p class="texto mt-3"><label for="CEP">CEP</label></p>
             <input type="text" id="cep" class="form-control" placeholder="CEP" maxlength="8" required="" autofocus="">
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button type="button" class="btn btn-dark" onclick="buscarCep()">Buscar CEP</button>
+                <button type="button" class="btn btn-dark my-2" onclick="buscarCep()">Buscar CEP</button>
             </div>
             
 
@@ -126,7 +126,7 @@
             <input type="password" name="csenha" id="csenha" placeholder="Confirmação de senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
             <span id='message'></span>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button type="button" id="btnEnviar" class="btn btn-dark">Enviar cadastro</button><br />
+                <button type="button" id="btnEnviar" class="btn btn-dark my-2">Enviar cadastro</button><br />
             </div>
             
         </form>
