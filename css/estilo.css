@@ -8,3 +8,7 @@ form {
 .texto {
     text-align: left;
 }
+
+body {
+    background-color:gainsboro;
+}

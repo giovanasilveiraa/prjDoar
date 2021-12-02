@@ -54,8 +54,10 @@
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
 
         </form>
-
     </div>
+    <div class="d-grid gap-2 col-6 mx-auto ">
+  <button type="submit" class="btn btn-dark my-4">Doar</button>
+  </div>
 <script>
 
 // $("#btnCad").click(function() {
