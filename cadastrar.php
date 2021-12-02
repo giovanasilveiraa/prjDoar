@@ -13,36 +13,33 @@ try {
 
         $check_email="SELECT email FROM usuario WHERE email = '$_POST[email]'";
         $rs_email = mysqli_query($con, $check_email);
-        $dt_email = mysqli_fetch_array($rs_email, MYSQLI_NUM);
-        if($dt_email[0] > 1) {
-            throw new Exception("Esse CPF já está em uso");
+        if(mysqli_num_rows($rs_email) > 0) {
+            throw new Exception("Esse email já está em uso");
         }
 
         $check_cpf="SELECT cpf FROM usuario WHERE cpf = '$_POST[cpf]'";
         $rs_cpf = mysqli_query($con, $check_cpf);
-        $dt_cpf = mysqli_fetch_array($rs_cpf, MYSQLI_NUM);
-        if($dt_cpf[0] > 0) {
-            throw new Exception("Esse RG já está em uso");
+        if(mysqli_num_rows($rs_cpf) > 0) {
+            throw new Exception("Esse CPF já está em uso");
         }
 
         $check_rg="SELECT rg FROM usuario WHERE rg = '$_POST[rg]'";
         $rs_rg = mysqli_query($con, $check_rg);
-        $dt_rg = mysqli_fetch_array($rs_rg, MYSQLI_NUM);
-        if($dt_rg[0] > 0) {
+        if(mysqli_num_rows($rs_rg) > 0) {
             throw new Exception("Esse RG já está em uso");
         }
 
-        // if ($nome == '') {
-        //     throw new Exception("O campo NOME não foi preenchido");
-        // }
+        if ($nome == '') {
+            throw new Exception("O campo NOME não foi preenchido");
+        }
 
-        // if ($cep == '') {
-        //     throw new Exception("O CEP não foi preenchido");
-        // }
+        if ($cep == '') {
+            throw new Exception("O CEP não foi preenchido");
+        }
     
-        // if ($cidade == '') {
-        //     throw new Exception("O campo CIDADE não foi preenchido");
-        // }
+        if ($cidade == '') {
+            throw new Exception("O campo CIDADE não foi preenchido");
+        }
 
         $sql= "INSERT INTO usuario (nome, rg, cpf, email, senha, logradouro, numero, complemento, bairro, estado)
                 VALUES ('$nome', '$rg', '$cpf', '$email', '$senha', '$logradouro', '$numero', '$complemento', '$bairro', '$estado')";
