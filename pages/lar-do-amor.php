@@ -21,7 +21,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand mx-5" href="#">Doar.com</a>
+    <a class="navbar-brand mx-4" href="#">Doar.com</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -50,6 +50,7 @@
 
             <p class="texto"><label for="senha">Senha:</label></p>
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
+            <button type="button" id="btnCad" class="btn btn-outline-dark">Buscar cadastro</button><br />
         </form>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto ">
