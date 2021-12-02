@@ -1,0 +1,47 @@
+img {
+    height: 150px;
+    width: 150px;
+}
+
+.paragrafo{
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    margin-bottom: 1.5em;
+    line-height: 1.4em;
+    font-weight:normal;
+    
+}
+
+
+body{
+    text-align: end;
+    background-color:gainsboro;
+}
+
+.container-div{
+    margin-top: 40px;
+}
+
+button{
+    margin-top: 20px;
+    border-radius: 8px;
+    
+}
+
+.div{
+    width: 1000px;
+    margin: 0 auto;
+    align-items: end;
+    justify-content: end;
+    text-align: end;
+    
+}
+
+.h3{
+    text-align: center;
+    margin-top: 10px;
+    color: red;
+}
+
+
