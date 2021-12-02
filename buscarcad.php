@@ -23,7 +23,7 @@ include("conexao.php");
         } else {
             $retorno['resp'] = true;
             $retorno['msg'] = "Cadastro realizado com sucesso";
-            $retorno['id'];
+            $retorno['idusuario'];
         }
         die(json_encode($retorno));
     

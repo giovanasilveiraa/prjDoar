@@ -72,7 +72,7 @@ $("#btnCad").click(function() {
                         bootbox.alert("Cadastro não encontrado");
                     } else {
                         bootbox.alert("Cadastro não encontrado");
-                        $("#idusuario").val(data.id);
+                        $("#idusuario").val(data.idusuario);
                     }
                 },
                 "JSON")
