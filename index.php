@@ -43,32 +43,44 @@
     <div class="container-div">
   <div class="row align-items-center">
     <div class="col-sm-4">
+    <a href="pages/acdc.php">
       <img class="rounded mx-auto d-block" src="imagens/acdc.png" alt="">
+      </a>
       <p align="center" class="paragrafo">Instituição ACDC</p>
     </div>
     <div class="col-sm-4">
+    <a href="pages/ampara-animal.php">
       <img class="rounded mx-auto d-block" src="imagens/amparaAnimal.jpg" 
       alt="">
+      </a>
       <p align="center" class="paragrafo">Instituição Ampara Animal</p>
     </div>
     <div class="col-sm-4">
+    <a href="pages/doutores-da-alegria.php">
       <img class="rounded mx-auto d-block" src="imagens/doutoresAlegria.jpg" alt="">
+      </a>
       <p align="center" class="paragrafo">Instituição Doutores da Alegria</p>
     </div>
   </div>
   <div class="container-div">
   <div class="row align-items-center">
     <div class="col-sm-4">
+    <a href="pages/lar-do-amor.php">
       <img class="rounded mx-auto d-block" src="imagens/larDoAmor.jpg" alt="">
+      </a>
       <p align="center" class="paragrafo">Instituição Lar do Amor</p>
     </div>
     <div class="col-sm-4">
+    <a href="pages/lar-vicentino.php">
       <img class="rounded mx-auto d-block" src="imagens/larVicentino.jpg" 
       alt="">
+       </a>
       <p align="center" class="paragrafo">Instituição Lar Vicentino</p>
     </div>
     <div class="col-sm-4">
+    <a href="pages/instituto-luiza-mel.php">
       <img class="rounded mx-auto d-block" src="imagens/luisaMell.jpg" alt="">
+      </a>
       <p align="center" class="paragrafo">Instituição Luisa Mell</p>
     </div>
   </div>
@@ -77,59 +89,4 @@
   <a href="cadastro.php"><button class="btn btn-dark">Cadastrar</button></a>
   </div>
 </body>
-
-<h3>Instituições</h3>
-<div class="container">
-    <div class="wrapper">
-        <div class="box a">
-            <p>Projeto Guri</p>
-            <a href="pages/projeto-guri.php">
-                <img alt="projeto-guri" src="imagens/prjGuri.jpg" width="90%" height="90%">
-            </a>
-        </div>
-        <div class="box b">
-            <p>Instituto Luisa Mell</p>
-            <a href="pages/instituto-luiza-mel.php">
-                <img alt="instituto-luiza-mel" src="imagens/luisaMell.jpg" width="90%" height="90%">
-            </a>
-        </div>
-        <div class="box c">
-            <p>Lar Vicentino</p>
-            <a href="pages/lar-vicentino.php">
-                <img alt="lar-vicentino" src="imagens/larVicentino.jpg" width="90%" height="90%">
-            </a>
-        </div>
-        <div class="box d">
-            <p>AMPARA Animal</p>
-            <a href="pages/ampara-animal.php">
-                <img alt="ampara-animal" src="imagens/amparaAnimal.jpg" width="90%" height="90%">
-            </a>
-        </div>
-        <div class="box e">
-            <p>Doutores da Alegria</p>
-            <a href="pages/doutores-da-alegria.php">
-                <img alt="doutores-da-alegria" src="imagens/doutoresAlegria.jpg" width="90%" height="90%">
-            </a>
-        </div>
-        <div class="box f">
-            <p>Retiro dos artistas</p>
-            <a href="pages/retiro-dos-artistas.php">
-                <img alt="retiro-dos-artistas" src="imagens/Retiro-dos-Artistas.jpg" width="90%" height="90%">
-            </a>
-        </div>
-        <div class="box g">
-            <p>Lar do Amor</p>
-            <a href="pages/lar-do-amor.php">
-                <img alt="lar-do-amor" src="imagens/larDoAmor.jpg" width="90%" height="90%">
-            </a>
-        </div>
-        <div class="box h">
-            <p>ACDC</p>
-            <a href="pages/acdc.php">
-                <img alt="acdc" src="imagens/acdc.png" width="90%" height="90%">
-            </a>
-        </div>
-    </div>
-</div>
-
 </html>

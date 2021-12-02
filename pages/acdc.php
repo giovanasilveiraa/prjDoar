@@ -24,9 +24,10 @@
 
             <p>Colabore com o ACDC</p>
             <p class="texto">
-                <img src="../imagens/acdc.png" width="10%" height="10%">
+                <img class="rounded mx-auto d-block" src="../imagens/acdc.png" width="10%" height="10%">
             </p>
-            <label for="valor">Valor da doação:</label>
+
+            <p class="texto"><label for="valor">Valor da doação:</label></p>
             <input class="form-control" type="number" name="valor" id="valor" change="setTwoNumberDecimal " min="???" max="???" required=" " autofocus=" " />
 
             <p class="texto "><label for="email ">Email:</label></p>
