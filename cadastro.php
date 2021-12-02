@@ -107,13 +107,12 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
             </select>
-            <br>
             <p class="texto mt-3"><label for="senha">Senha:</label></p>
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
 
             <p class="texto mt-3"><label for="csenha">Confirmação de senha:</label></p>
             <input type="password" name="csenha" id="csenha" placeholder="Confirmação de senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
-            <span id='message'></span><br/>
+            <span id='message'></span>
             <div class="d-grid gap-2 col-6 mx-auto">
                 <button type="button" id="btnEnviar" class="btn btn-dark">Enviar cadastro</button><br />
             </div>
