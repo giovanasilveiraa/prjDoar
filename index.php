@@ -73,7 +73,7 @@
     </div>
   </div>
   <div class="div">
-  <button type="submit" class="btn btn-dark">Doar</button>
+
   <a href="cadastro.php"><button class="btn btn-dark">Cadastrar</button></a>
   </div>
 </body>
