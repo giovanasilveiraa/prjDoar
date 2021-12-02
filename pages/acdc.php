@@ -48,7 +48,7 @@
             <input class="form-control" type="number" name="valor" id="valor" change="setTwoNumberDecimal " min="???" max="???" required=" " autofocus=" " />
 
             <p class="texto "><label for="email ">Email:</label></p>
-            <input class="form-control " name="email " type="email " id="email " required=" " autofocus=" " />
+            <input class="form-control " name="email " type="email " id="email" required=" " autofocus=" " />
 
             <p class="texto"><label for="senha">Senha:</label></p>
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
@@ -69,10 +69,12 @@ $("#btnCad").click(function() {
                 },
                 function(data) {
                     if (data.resp == false) {
-                        bootbox.alert("Cadastro não encontrado");
+                        // bootbox.alert("Cadastro não encontrado");
                     } else {
-                        bootbox.alert("Cadastro não encontrado");
+                        console.log("Cadastro não encontrado");
                         $("#idusuario").val(data.idusuario);
+                        // bootbox.alert("Cadastro não encontrado");
+                       
                     }
                 },
                 "JSON")
