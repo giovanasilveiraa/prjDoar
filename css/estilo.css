@@ -9,12 +9,12 @@ form {
     text-align: left;
 }
 
-.teste {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    background-color: rgba(0, 157, 220);
-    border-color: black;
-    width: 50%;
-    text-align: center;
-    margin: auto;
-    padding: 10px;
+body {
+    background-color:gainsboro;
+}
+
+.container-div{
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
 }

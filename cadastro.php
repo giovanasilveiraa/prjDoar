@@ -24,41 +24,72 @@
 </head>
 
 <body>
-    <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand mx-5" href="#">Doar.com</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+    <div class="container-div">
         <form action="" method="POST" class="form-control">
 
-            <p class="texto"><label for="nome">Nome</label></p>
-            <input type="text" name="nome" id="nome" placeholder="Nome completo" class="form-control" required="" autofocus=""><br />
+            <div class="row">
+            <div class="col">
+                
+                <h1  class="mt-5 text-danger fst-italic"><svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 15 16">
+            <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z"/>
+            </svg>
+                    CADASTRO 
+                </h1>   
+            </div>
+            </div>
 
-            <p class="texto"><label for="email">Email:</label></p>
+            <p class="texto mt-2"><label for="nome">Nome</label></p>
+            <input type="text" name="nome" id="nome" placeholder="Nome completo" class="form-control" required="" autofocus="">
+
+            <p class="texto mt-3"><label for="email">Email:</label></p>
             <input class="form-control" name="email" type="email" id="email" required="" autofocus=""/>
 
-            <p class="texto"><label for="rg">RG:</label></p>
-            <input type="number" name="rg" id="rg" placeholder="RG" class="form-control" required="" autofocus=""><br />
+            <p class="texto mt-3"><label for="rg">RG:</label></p>
+            <input type="number" name="rg" id="rg" placeholder="RG" class="form-control" required="" autofocus="">
 
-            <p class="texto"><label for="cpf">CPF:</label></p>
-            <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control" required="" autofocus=""><br />
+            <p class="texto mt-3"><label for="cpf">CPF:</label></p>
+            <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control" required="" autofocus="">
 
-            <p class="texto"><label for="CEP">CEP</label></p>
-            <input type="text" id="cep" class="form-control" placeholder="CEP" maxlength="8" required="" autofocus=""><br />
-            <button type="button" class="form-control teste" onclick="buscarCep()">Buscar CEP</button><br />
-
-            <p class="texto"><label for="logradouro">Logradouro</label></p>
-            <input type="text" id="logradouro" class="form-control" placeholder="Logradouro" required="" autofocus=""><br />
-
-            <p class="texto"><label for="numero">Numero</label></p>
-            <input type="text" id="numero" class="form-control" placeholder="Numero" required="" autofocus=""><br />
+            <p class="texto mt-3"><label for="CEP">CEP</label></p>
+            <input type="text" id="cep" class="form-control" placeholder="CEP" maxlength="8" required="" autofocus="">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-dark my-2" onclick="buscarCep()">Buscar CEP</button>
+            </div>
             
-            <p class="texto"><label for="complemento">Complemento:</label></p>
-            <input type="text" id="complemento" class="form-control" placeholder="complemento" required="" autofocus=""><br />
 
-            <p class="texto"><label for="bairro">Bairro</label></p>
-            <input type="text" id="bairro" class="form-control" placeholder="Bairro" required="" autofocus=""><br />
+            <p class="texto mt-3"><label for="logradouro">Logradouro</label></p>
+            <input type="text" id="logradouro" class="form-control" placeholder="Logradouro" required="" autofocus="">
 
-            <p class="texto"><label for="cidade">Cidade</label></p>
-            <input type="text" id="cidade" class="form-control" placeholder="Cidade" required="" autofocus=""><br />
+            <p class="texto mt-3"><label for="numero">Numero</label></p>
+            <input type="text" id="numero" class="form-control" placeholder="Numero" required="" autofocus="">
+            
+            <p class="texto mt-3"><label for="complemento">Complemento:</label></p>
+            <input type="text" id="complemento" class="form-control" placeholder="complemento" required="" autofocus="">
 
-            <p class="texto">UF</p>
+            <p class="texto mt-3"><label for="bairro">Bairro</label></p>
+            <input type="text" id="bairro" class="form-control" placeholder="Bairro" required="" autofocus="">
+
+            <p class="texto mt-3"><label for="cidade">Cidade</label></p>
+            <input type="text" id="cidade" class="form-control" placeholder="Cidade" required="" autofocus="">
+
+            <p class="texto mt-3">UF</p>
             <select id="estado" class="form-control cep">
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -88,14 +119,16 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
             </select>
-            <br>
-            <p class="texto"><label for="senha">Senha:</label></p>
+            <p class="texto mt-3"><label for="senha">Senha:</label></p>
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
 
-            <p class="texto"><label for="csenha">Confirmação de senha:</label></p>
+            <p class="texto mt-3"><label for="csenha">Confirmação de senha:</label></p>
             <input type="password" name="csenha" id="csenha" placeholder="Confirmação de senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
-            <span id='message'></span><br/>
-            <button type="button" id="btnEnviar" class="form-control teste">Enviar cadastro</button><br />
+            <span id='message'></span>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="button" id="btnEnviar" class="btn btn-dark my-2">Enviar cadastro</button><br />
+            </div>
+            
         </form>
     </div>
 
