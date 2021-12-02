@@ -29,24 +29,11 @@ try {
             throw new Exception("Esse RG já está em uso");
         }
 
-        if ($nome == '') {
-            throw new Exception("O campo NOME não foi preenchido");
-        }
-
-        if ($cep == '') {
-            throw new Exception("O CEP não foi preenchido");
-        }
-    
-        if ($cidade == '') {
-            throw new Exception("O campo CIDADE não foi preenchido");
-        }
-
-        $sql= "INSERT INTO usuario (nome, rg, cpf, email, senha, logradouro, numero, complemento, bairro, estado)
-                VALUES ('$nome', '$rg', '$cpf', '$email', '$senha', '$logradouro', '$numero', '$complemento', '$bairro', '$estado')";
+        $sql= "INSERT INTO usuario (nome, rg, cpf, email, senha, logradouro, numero, complemento, bairro, estado) VALUES ('$nome', '$rg', '$cpf', '$email', '$senha', '$logradouro', '$numero', '$complemento', '$bairro', '$estado')";
 
         $res = mysqli_query($con, $sql);
         $retorno = array();
-        
+        echo($sql);
 
         if ($res == false) {
             throw new Exception("Erro ao inserir cadastro");
