@@ -81,9 +81,8 @@
       <p align="center" class="paragrafo">Instituição Luisa Mell</p>
     </div>
   </div>
-  <div class="div">
-
-  <a href="cadastro.php"><button class="btn btn-dark">Cadastrar</button></a>
-  </div>
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-dark" type="button">Cadastrar</button>
+</div>
 </body>
 </html>
