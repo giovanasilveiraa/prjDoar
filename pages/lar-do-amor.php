@@ -54,6 +54,9 @@
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
         </form>
     </div>
+    <div class="d-grid gap-2 col-6 mx-auto ">
+  <a href="../index.php" class="btn btn-dark my-5">Voltar</a>
+  </div>
 <script>
 
 // $("#btnCad").click(function() {
