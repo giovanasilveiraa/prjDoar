@@ -55,7 +55,7 @@
         </form>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto ">
-  <a href="../index.php" class="btn btn-dark my-5">Voltar</a>
+  <button type="submit" class="btn btn-dark my-4">Doar</button>
   </div>
 <script>
 
