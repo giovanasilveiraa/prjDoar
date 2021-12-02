@@ -27,6 +27,8 @@
                 <img class="rounded mx-auto d-block" src="../imagens/acdc.png" width="10%" height="10%">
             </p>
 
+            <input type="hidden" name="idusuario" value="" id="idusuario">
+
             <p class="texto"><label for="valor">Valor da doação:</label></p>
             <input class="form-control" type="number" name="valor" id="valor" change="setTwoNumberDecimal " min="???" max="???" required=" " autofocus=" " />
 
@@ -35,28 +37,29 @@
 
             <p class="texto"><label for="senha">Senha:</label></p>
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
+            <button type="button" id="btnCad" class="btn btn dark">Buscar cadastro</button><br />
 
         </form>
 
     </div>
 <script>
 
-// $("#btnCad").click(function() {
-//             $.post(
-//                 "doacao.php", {
-//                     email: $("#email").val(),
-//                     senha: $("#senha").val(),
-//                 },
-//                 function(data) {
-//                     if (data.resp == false) {
-//                         data.;
-//                     } else {
-//                         bootbox.alert("Cadastro realizado");
-//                     }
-//                 },
-
-//                 "JSON")
-//         });
+$("#btnCad").click(function() {
+            $.post(
+                "../buscarcad.php", {
+                    email: $("#email").val(),
+                    senha: $("#senha").val(),
+                },
+                function(data) {
+                    if (data.resp == false) {
+                        bootbox.alert("Cadastro não encontrado");
+                    } else {
+                        bootbox.alert("Cadastro não encontrado");
+                        $("#idusuario").val(data.id);
+                    }
+                },
+                "JSON")
+        });
 </script>
 </body>
 
