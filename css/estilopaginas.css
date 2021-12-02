@@ -8,3 +8,13 @@ form {
 .texto {
     text-align: left;
 }
+
+img {
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    align-items: center;
+    justify-content: center;
+}
