@@ -82,7 +82,7 @@
     </div>
   </div>
   <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-dark" type="button">Cadastrar</button>
-</div>
+  <a href="cadastro.php" class="btn btn-dark">Cadastrar</a>
+  </div>
 </body>
 </html>
