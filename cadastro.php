@@ -43,7 +43,19 @@
     <div class="container">
         <form action="" method="POST" class="form-control">
 
-            <p class="texto mt-3"><label for="nome">Nome</label></p>
+            <div class="row">
+            <div class="col">
+                
+                <h1  class="text-secondary fst-italic"><svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 15 16">
+            <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z"/>
+            </svg>
+                    CADASTRO 
+                </h1>   
+            </div>
+            </div>
+
+            <p class="texto mt-5"><label for="nome">Nome</label></p>
             <input type="text" name="nome" id="nome" placeholder="Nome completo" class="form-control" required="" autofocus="">
 
             <p class="texto mt-3"><label for="email">Email:</label></p>
