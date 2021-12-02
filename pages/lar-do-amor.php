@@ -52,11 +52,8 @@
 
             <p class="texto"><label for="senha">Senha:</label></p>
             <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
-
         </form>
     </div>
-    <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-dark" type="button">Voltar</button>
 <script>
 
 // $("#btnCad").click(function() {
