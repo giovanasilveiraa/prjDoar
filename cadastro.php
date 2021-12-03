@@ -135,7 +135,7 @@
     <script>
         $("#btnEnviar").click(function() {
             $.post(
-                "../pages-bd/cadastrar.php", {
+                "../bd/cadastrar.php", {
                     nome: $("#nome").val(),
                     email: $("#email").val(),
                     rg: $("#rg").val(),

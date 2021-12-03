@@ -15,6 +15,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js">
+    </script>
     <title>Doar.com</title>
 </head>
 
@@ -46,8 +48,8 @@
             <input type="hidden" name="idinstituicao" value="1" id="idinstituicao">
 
             <?php
-            include("../conexao.php");
-            $sql="SELECT nome, cnpj, cidade, estado FROM instituicao WHERE idinstituicao = 1";
+            include("../bd/conexao.php");
+            $sql="SELECT nome, cnpj, cidade, estado, descricao FROM instituicao WHERE idinstituicao = 1";
             $res = mysqli_query($con, $sql);
 
             while($sql = mysqli_fetch_array($res))
@@ -57,6 +59,7 @@
                 <p class="texto"><label for="cnpj"><?php echo $sql['cnpj'];?></label></p>
                 <p class="texto"><label for="cidade"><?php echo $sql['cidade'];?></label></p>
                 <p class="texto"><label for="estado"><?php echo $sql['estado'];?></label></p>
+                <p class="texto"><label for="estado"><?php echo $sql['descricao'];?></label></p>
             <?php
             }
             ?>
@@ -73,26 +76,21 @@
                 <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
                 <button type="button" id="btnCad" class="btn btn-outline-dark">Buscar cadastro</button><br />
                 <button type="button" id="btnEnviar" class="btn btn-dark my-4">Doar</button><br />
-
-            <div class="d-grid gap-2 col-6 mx-auto ">
-                <button type="button" id="btnEnviar" class="btn btn-dark my-2">Enviar cadastro</button><br />
-            </div>
         </form>
     </div>
     <script>
         $("#btnCad").click(function() {
             $.post(
-                "../pages-bd/buscarcad.php", {
+                "../bd/buscarcad.php", {
                     email: $("#email").val(),
                     senha: $("#senha").val(),
                 },
                 function(data) {
                     if (data.resp == false) {
-                        // bootbox.alert("Cadastro não encontrado");
+                        bootbox.alert("Cadastro não encontrado");
                     } else {
-                        console.log("Cadastro não encontrado");
                         $("#idusuario").val(data.idusuario);
-                        // bootbox.alert("Cadastro encontrado");
+                        bootbox.alert("Cadastro encontrado");
 
                     }
                 },
@@ -100,7 +98,7 @@
         }); 
         $("#btnEnviar").click(function() {
             $.post(
-                "../doacao.php", {
+                "../bd/doacao.php", {
                     valor: $("#valor").val(),
                     idusuario: $("#idusuario").val(),
                     idinstituicao: $("#idinstituicao").val(),
@@ -109,16 +107,13 @@
                     if (data.resp == false) {
                         console.log("Cadastro não encontrado");
 
-                        // bootbox.alert(`Ocorreu um erro:"${data.msg}"`);
+                        bootbox.alert(`Ocorreu um erro:"${data.msg}"`);
                     } else {
-                        // bootbox.alert("Cadastro realizado"); 
+                        bootbox.alert("Cadastro realizado"); 
                     }
                 },
 
                 "JSON")
-        });
-        $( "#valor" ).blur(function() {
-            this.value = parseFloat(this.value).toFixed(2);
         });
     </script>
 </body>
