@@ -45,7 +45,7 @@
             </p>
 
             <input type="hidden" name="idusuario" value="" id="idusuario">
-            <input type="hidden" name="idinstituicao" value="1" id="idinstituicao">
+            <input type="hidden" name="idinstituicao" value="3" id="idinstituicao">
 
             <?php
             include("../bd/conexao.php");

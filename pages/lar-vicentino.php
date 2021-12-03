@@ -45,11 +45,11 @@
             </p>
 
             <input type="hidden" name="idusuario" value="" id="idusuario">
-            <input type="hidden" name="idinstituicao" value="1" id="idinstituicao">
+            <input type="hidden" name="idinstituicao" value="5" id="idinstituicao">
 
             <?php
             include("../bd/conexao.php");
-            $sql="SELECT nome, cnpj, cidade, estado, descricao FROM instituicao WHERE idinstituicao = 6";
+            $sql="SELECT nome, cnpj, cidade, estado, descricao FROM instituicao WHERE idinstituicao = 5";
             $res = mysqli_query($con, $sql);
 
             while($sql = mysqli_fetch_array($res))
