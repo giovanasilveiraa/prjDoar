@@ -186,12 +186,12 @@
             }
         }
 
-        // $('#senha, #csenha').on('keyup', function() {
-        //     if ($('#senha').val() == $('#csenha').val()) {
-        //         $('#message').html('');
-        //     } else
-        //         $('#message').html('Not Matching').css('color', 'red');
-        // });
+        $('#senha, #csenha').on('keyup', function() {
+            if ($('#senha').val() == $('#csenha').val()) {
+                $('#message').html('Conclua seu cadastro');
+            } else
+                $('#message').html('Senha não coincide').css('color', 'red');
+        });
     </script>
 </body>
 

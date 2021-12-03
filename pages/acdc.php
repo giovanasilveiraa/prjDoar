@@ -19,23 +19,23 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand mx-4" href="#">Doar.com</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
-        </li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-4" href="#">Doar.com</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+                    </li>
 
-      </ul>
-    </div>
-  </div>
-</nav>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container-div">
-        <form action="" method="POST" class="form-control">            
+        <form action="" method="POST" class="form-control">
 
             <p>Colabore com o ACDC</p>
             <p class="texto">
@@ -43,25 +43,40 @@
             </p>
 
             <input type="hidden" name="idusuario" value="" id="idusuario">
+            <input type="hidden" name="idinstituicao" value="1" id="idinstituicao">
 
-            <p class="texto"><label for="valor">Valor da doação:</label></p>
-            <input class="form-control" type="number" name="valor" id="valor" change="setTwoNumberDecimal " min="???" max="???" required=" " autofocus=" " />
+            <?php
+            include("../conexao.php");
+            $sql="SELECT nome, cnpj, cidade, estado FROM instituicao WHERE idinstituicao = 1";
+            $res = mysqli_query($con, $sql);
 
-            <p class="texto "><label for="email ">Email:</label></p>
-            <input class="form-control " name="email " type="email " id="email" required=" " autofocus=" " />
+            while($sql = mysqli_fetch_array($res))
+            {
+            ?>
+                <p class="texto"><label for="nome"><?php echo $sql['nome'];?></label></p>
+                <p class="texto"><label for="cnpj"><?php echo $sql['cnpj'];?></label></p>
+                <p class="texto"><label for="cidade"><?php echo $sql['cidade'];?></label></p>
+                <p class="texto"><label for="estado"><?php echo $sql['estado'];?></label></p>
+            <?php
+            }
+            ?>
+                <?php mysqli_close($con);?>
 
-            <p class="texto"><label for="senha">Senha:</label></p>
-            <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
-            <button type="button" id="btnCad" class="btn btn-outline-dark">Buscar cadastro</button><br />
+                <p class="texto"><label for="valor">Valor da doação:</label></p>
+                <input class="form-control" type="number" name="valor" id="valor" required=" " autofocus=" " />
+
+                <p class="texto "><label for="email ">Email:</label></p>
+                <input class="form-control " name="email " type="email " id="email" required=" " autofocus=" " />
+
+                <p class="texto"><label for="senha">Senha:</label></p>
+                <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" minlength="8" autocomplete="off" required="" autofocus="">
+                <button type="button" id="btnCad" class="btn btn-outline-dark">Buscar cadastro</button><br />
+                <button type="button" id="btnEnviar" class="btn btn-dark my-4">Doar</button><br />
 
         </form>
     </div>
-    <div class="d-grid gap-2 col-6 mx-auto ">
-  <button type="submit" class="btn btn-dark my-4">Doar</button>
-  </div>
-<script>
-
-$("#btnCad").click(function() {
+    <script>
+        $("#btnCad").click(function() {
             $.post(
                 "../buscarcad.php", {
                     email: $("#email").val(),
@@ -73,13 +88,35 @@ $("#btnCad").click(function() {
                     } else {
                         console.log("Cadastro não encontrado");
                         $("#idusuario").val(data.idusuario);
-                        // bootbox.alert("Cadastro não encontrado");
-                       
+                        // bootbox.alert("Cadastro encontrado");
+
                     }
                 },
                 "JSON")
         });
-</script>
+        $("#btnEnviar").click(function() {
+            $.post(
+                "../doacao.php", {
+                    valor: $("#valor").val(),
+                    idusuario: $("#idusuario").val(),
+                    idinstituicao: $("#idinstituicao").val(),
+                },
+                function(data) {
+                    if (data.resp == false) {
+                        console.log("Cadastro não encontrado");
+
+                        // bootbox.alert(`Ocorreu um erro:"${data.msg}"`);
+                    } else {
+                        // bootbox.alert("Cadastro realizado");
+                    }
+                },
+
+                "JSON")
+        });
+        $( "#valor" ).blur(function() {
+            this.value = parseFloat(this.value).toFixed(2);
+        });
+    </script>
 </body>
 
 </html>

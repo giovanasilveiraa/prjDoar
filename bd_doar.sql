@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Dez-2021 às 00:47
+-- Tempo de geração: 03-Dez-2021 às 19:56
 -- Versão do servidor: 8.0.27
--- versão do PHP: 8.0.11
+-- versão do PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,52 +30,49 @@ SET time_zone = "+00:00";
 CREATE TABLE `doacao` (
   `iddoacao` int NOT NULL,
   `valor` double DEFAULT NULL,
-  `usuario_idusuario` int NOT NULL,
-  `instituição_idinstituição` int NOT NULL
+  `idusuario` int NOT NULL,
+  `idinstituicao` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `doacao`
+--
+
+INSERT INTO `doacao` (`iddoacao`, `valor`, `idusuario`, `idinstituicao`) VALUES
+(1, 12, 1, 1),
+(2, 12.09, 1, 1),
+(3, 13, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `endereco_instituicao`
+-- Estrutura da tabela `instituicao`
 --
 
-CREATE TABLE `endereco_instituicao` (
-  `idendereco_instituicao` int NOT NULL,
-  `logradouro` varchar(200) DEFAULT NULL,
-  `numero` varchar(30) DEFAULT NULL,
-  `complemento` varchar(100) DEFAULT NULL,
-  `bairro` varchar(100) DEFAULT NULL,
-  `estado` char(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `endereco_usuario`
---
-
-CREATE TABLE `endereco_usuario` (
-  `idendereco` int NOT NULL,
-  `logradouro` varchar(200) DEFAULT NULL,
-  `numero` varchar(30) DEFAULT NULL,
-  `complemento` varchar(100) DEFAULT NULL,
-  `bairro` varchar(100) DEFAULT NULL,
-  `estado` char(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `instituição`
---
-
-CREATE TABLE `instituição` (
-  `idinstituição` int NOT NULL,
+CREATE TABLE `instituicao` (
+  `idinstituicao` int NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
-  `cnpj` varchar(14) DEFAULT NULL,
-  `idendereco_instituicao` int NOT NULL
+  `cnpj` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cep` varchar(8) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `logradouro` varchar(200) DEFAULT NULL,
+  `numero` varchar(30) DEFAULT NULL,
+  `complemento` varchar(100) DEFAULT NULL,
+  `bairro` varchar(100) DEFAULT NULL,
+  `estado` char(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `instituicao`
+--
+
+INSERT INTO `instituicao` (`idinstituicao`, `nome`, `cnpj`, `cep`, `cidade`, `logradouro`, `numero`, `complemento`, `bairro`, `estado`) VALUES
+(1, 'ACDC', '140005616020001', '18400230', 'Itapeva', 'Praça Vinte de Setembro', '164', 'perto da oficina servipex', 'Vila Ophelia', 'SP'),
+(2, 'Lar do Amor', '619230900001', '18401200', 'Itapeva', 'Ipanema', '426', 'perto da igreja Nossa Senhora Aparecida', 'Vila Aparecida', 'SP'),
+(3, 'Retiro dos artistas', '40448201000170', '22770102', 'Rio de Janeiro', 'Retiro Dos Artistas', '607', 'perto do antigo projac', 'Jacarepagua', 'RJ'),
+(4, 'Ampara Animal', '286203160001', '4718000', 'São Paulo', 'Cap Otavio Machado', '345', 'Chacara Santo Antonio', 'Chacara Santo Antonio', 'SP'),
+(5, 'Lar Vicentino', '711116290001', '18400', 'Itapeva', 'Praça Dom Sílvio Maria Dário', '127', 'perto da praça do asilo', 'Vila Ofelia', 'SP'),
+(6, 'Instituto Luisa Mell de Assistencia aos animais', '218777960001', '9445690', 'Ribeirão Pires', 'Alzira', '227', '', 'Somma', 'SP');
 
 -- --------------------------------------------------------
 
@@ -88,9 +85,24 @@ CREATE TABLE `usuario` (
   `nome` varchar(100) DEFAULT NULL,
   `rg` varchar(9) DEFAULT NULL,
   `cpf` varchar(11) DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `senha` varchar(45) DEFAULT NULL,
-  `idendereco` int NOT NULL
+  `cep` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cidade` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `logradouro` varchar(200) DEFAULT NULL,
+  `numero` varchar(30) DEFAULT NULL,
+  `complemento` varchar(100) DEFAULT NULL,
+  `bairro` varchar(100) DEFAULT NULL,
+  `estado` char(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idusuario`, `nome`, `rg`, `cpf`, `email`, `senha`, `cep`, `cidade`, `logradouro`, `numero`, `complemento`, `bairro`, `estado`) VALUES
+(1, 'hrcueçiovbi', '444444445', '44444444444', 'the5h1975@a.com', '123', '18404130', 'Itapeva', 'Rua 9 de Julho', '12', 'de 284/285 ao fim', 'Vila São Miguel', 'SP'),
+(2, 'nrnhrhy', '46934539', '46438175859', 'andressagoncalves1997@gmail.com', '123', NULL, NULL, 'Rua 9 de Julho', '123', 'de 284/285 ao fim', 'Vila São Miguel', 'SP');
 
 --
 -- Índices para tabelas despejadas
@@ -101,37 +113,20 @@ CREATE TABLE `usuario` (
 --
 ALTER TABLE `doacao`
   ADD PRIMARY KEY (`iddoacao`),
-  ADD KEY `fk_doacao_usuario1_idx` (`usuario_idusuario`),
-  ADD KEY `fk_doacao_instituição1_idx` (`instituição_idinstituição`);
+  ADD KEY `fk_doacao_usuario1_idx` (`idusuario`),
+  ADD KEY `fk_doacao_instituicao1_idx` (`idinstituicao`);
 
 --
--- Índices para tabela `endereco_instituicao`
+-- Índices para tabela `instituicao`
 --
-ALTER TABLE `endereco_instituicao`
-  ADD PRIMARY KEY (`idendereco_instituicao`);
-
---
--- Índices para tabela `endereco_usuario`
---
-ALTER TABLE `endereco_usuario`
-  ADD PRIMARY KEY (`idendereco`);
-
---
--- Índices para tabela `instituição`
---
-ALTER TABLE `instituição`
-  ADD PRIMARY KEY (`idinstituição`,`idendereco_instituicao`),
-  ADD UNIQUE KEY `cnpj_UNIQUE` (`cnpj`),
-  ADD KEY `fk_instituição_endereco_instituicao1_idx` (`idendereco_instituicao`);
+ALTER TABLE `instituicao`
+  ADD PRIMARY KEY (`idinstituicao`);
 
 --
 -- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idusuario`,`idendereco`),
-  ADD UNIQUE KEY `rg_UNIQUE` (`rg`),
-  ADD UNIQUE KEY `cpf_UNIQUE` (`cpf`),
-  ADD KEY `fk_usuario_endereco_idx` (`idendereco`);
+  ADD PRIMARY KEY (`idusuario`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -141,31 +136,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `doacao`
 --
 ALTER TABLE `doacao`
-  MODIFY `iddoacao` int NOT NULL AUTO_INCREMENT;
+  MODIFY `iddoacao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `endereco_instituicao`
+-- AUTO_INCREMENT de tabela `instituicao`
 --
-ALTER TABLE `endereco_instituicao`
-  MODIFY `idendereco_instituicao` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `endereco_usuario`
---
-ALTER TABLE `endereco_usuario`
-  MODIFY `idendereco` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `instituição`
---
-ALTER TABLE `instituição`
-  MODIFY `idinstituição` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `instituicao`
+  MODIFY `idinstituicao` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int NOT NULL AUTO_INCREMENT;
+  MODIFY `idusuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
@@ -175,20 +158,8 @@ ALTER TABLE `usuario`
 -- Limitadores para a tabela `doacao`
 --
 ALTER TABLE `doacao`
-  ADD CONSTRAINT `fk_doacao_instituição1` FOREIGN KEY (`instituição_idinstituição`) REFERENCES `instituição` (`idinstituição`),
-  ADD CONSTRAINT `fk_doacao_usuario1` FOREIGN KEY (`usuario_idusuario`) REFERENCES `usuario` (`idusuario`);
-
---
--- Limitadores para a tabela `instituição`
---
-ALTER TABLE `instituição`
-  ADD CONSTRAINT `fk_instituição_endereco_instituicao1` FOREIGN KEY (`idendereco_instituicao`) REFERENCES `endereco_instituicao` (`idendereco_instituicao`);
-
---
--- Limitadores para a tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `fk_usuario_endereco` FOREIGN KEY (`idendereco`) REFERENCES `endereco_usuario` (`idendereco`);
+  ADD CONSTRAINT `fk_doacao_instituicao1` FOREIGN KEY (`idinstituicao`) REFERENCES `instituicao` (`idinstituicao`),
+  ADD CONSTRAINT `fk_doacao_usuario1` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
