@@ -63,7 +63,8 @@
                 <?php mysqli_close($con);?>
 
                 <p class="texto"><label for="valor">Valor da doação:</label></p>
-                <input class="form-control" type="number" name="valor" id="valor" required=" " autofocus=" " />
+                <input class="form-control" type="number" name="valor" id="valor" required=" " autofocus=" " />          
+            
 
                 <p class="texto "><label for="email ">Email:</label></p>
                 <input class="form-control " name="email " type="email " id="email" required=" " autofocus=" " />
@@ -73,12 +74,15 @@
                 <button type="button" id="btnCad" class="btn btn-outline-dark">Buscar cadastro</button><br />
                 <button type="button" id="btnEnviar" class="btn btn-dark my-4">Doar</button><br />
 
+            <div class="d-grid gap-2 col-6 mx-auto ">
+                <button type="button" id="btnEnviar" class="btn btn-dark my-2">Enviar cadastro</button><br />
+            </div>
         </form>
     </div>
     <script>
         $("#btnCad").click(function() {
             $.post(
-                "../buscarcad.php", {
+                "../pages-bd/buscarcad.php", {
                     email: $("#email").val(),
                     senha: $("#senha").val(),
                 },
@@ -107,7 +111,7 @@
 
                         // bootbox.alert(`Ocorreu um erro:"${data.msg}"`);
                     } else {
-                        // bootbox.alert("Cadastro realizado");
+                        // bootbox.alert("Cadastro realizado"); 
                     }
                 },
 

@@ -1,8 +1,8 @@
 <?php
 include("conexao.php");
-
-    if ($_POST) {
 try{
+    if ($_POST) {
+
 
         extract($_POST);
 
@@ -23,7 +23,7 @@ try{
             $retorno['idusuario'] = $usuario['idusuario'];
         
         die(json_encode($retorno));
-    
+    }
 } catch (Exception $e) {
 
     $retorno = array();
@@ -31,5 +31,4 @@ try{
     $retorno['msg'] = $e->getMessage();
     die(json_encode($retorno));
 }
-    }
 ?>

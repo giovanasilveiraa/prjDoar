@@ -33,6 +33,7 @@ try {
 
         $res = mysqli_query($con, $sql);
         $retorno = array();
+        echo($sql);
 
         if ($res == false) {
             throw new Exception("Erro ao inserir cadastro");
