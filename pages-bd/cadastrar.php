@@ -15,7 +15,7 @@ try {
         $rs_email = mysqli_query($con, $check_email);
         if(mysqli_num_rows($rs_email) > 0) {
             throw new Exception("Esse email já está em uso");
-        }
+        } 
 
         $check_cpf="SELECT cpf FROM usuario WHERE cpf = '$_POST[cpf]'";
         $rs_cpf = mysqli_query($con, $check_cpf);
