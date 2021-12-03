@@ -97,7 +97,7 @@
                     }
                 },
                 "JSON")
-        });
+        }); 
         $("#btnEnviar").click(function() {
             $.post(
                 "../doacao.php", {
