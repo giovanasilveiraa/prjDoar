@@ -11,11 +11,11 @@ try {
         }
 
         if($valor < 10){
-            throw new Exception(" "+"Valor abaixo do permitido");
+            throw new Exception("Valor abaixo do permitido");
         }
 
         if($valor > 1000){
-            throw new Exception(" "+"Valor acima do permitido");
+            throw new Exception("Valor acima do permitido");
         }
 
         $sql= "INSERT INTO doacao (valor, idusuario, idinstituicao) VALUES ('$valor', '$idusuario', '$idinstituicao')";
